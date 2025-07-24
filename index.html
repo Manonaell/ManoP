@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Love Balloons</title>
+  <style>
+     body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f0f0f0; /* optional */
+    }
+
+    button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #1e3a8a;
+      color: #fcf1f7;
+      border: none;
+      border-radius: 25px;
+      padding: 20px 40px;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-1500px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    
+  </style>
+</head>
+<body>
+  <a href="next.html">
+    <button>Press me</button>
+  </a>
+</body>
+</html>

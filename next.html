@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Love Balloons</title>
+  <div id="emoji-container"></div>
+  <style>
+    body {
+      margin: 0;
+      background: #b6d7e4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-1500px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    #image-container {
+  position: relative;
+  z-index: 1;
+}
+
+#image-container img {
+  width: 100%;
+  height: auto;
+  max-width: 90vw; /* 90% of viewport width */
+  max-height: 90vh; /* 90% of viewport height */
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  object-fit: contain; 
+}
+
+    #emoji-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+    .floating-emoji {
+  position: absolute;
+  bottom: 0; 
+  font-size: 2rem;
+  animation: floatUp 5s linear forwards;
+  opacity: 0;
+}
+
+    @keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px); 
+    opacity: 0;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <div id="balloon-area">
+    <div id="image-container">
+      <a href="fourth.html">
+        <img src="fff.png" alt="Love Message" />
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const emojis = ['🥰', '💙', '🎂', '✨', '🥹'];
+
+  function createEmoji() {
+    const emoji = document.createElement('span');
+    emoji.classList.add('floating-emoji');
+    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+   
+    emoji.style.left = Math.random() * 100 + '%';
+
+    
+    emoji.style.fontSize = (Math.random() * 20 + 16) + 'px';
+
+    
+    emoji.style.animationDuration = (4 + Math.random() * 2) + 's';
+
+   
+    document.getElementById('emoji-container').appendChild(emoji);
+
+    
+    setTimeout(() => {
+      emoji.remove();
+    }, 6000);
+  }
+
+ 
+  setInterval(createEmoji, 300);
+  </script>
+
+</body>
+</html>
